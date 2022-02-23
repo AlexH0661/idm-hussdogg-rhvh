@@ -1,0 +1,6 @@
+---
+- name: Install required packages
+  ansible.builtin.dnf:
+    name:
+      - cephadm-ansible
+      - cockpit-ovirt-dashboard

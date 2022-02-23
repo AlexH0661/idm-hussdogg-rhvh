@@ -1,0 +1,7 @@
+---
+- name: Configure firewalld
+  ansible.posix.firewalld:
+    service: cockpit
+    state: enabled
+    immediate: yes
+    persistent: yes
