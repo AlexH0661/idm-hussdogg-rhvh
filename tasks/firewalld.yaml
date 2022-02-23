@@ -4,4 +4,4 @@
     service: cockpit
     state: enabled
     immediate: yes
-    persistent: yes
+    permanent: yes
