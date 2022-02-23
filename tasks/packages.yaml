@@ -7,12 +7,12 @@
 - name: Reset stream if required
   ansible.builtin.shell:
     cmd: 'dnf module reset virt:rhel -y'
-  when: module_result.stdout.find('av') != -1 or module_result.stdout != ''
+  when: module_result.stdout.find('av') == -1 or module_result.stdout != ""
 
 - name: Configure correct stream
   ansible.builtin.shell:
     cmd: 'dnf module enable virt:av -y'
-  when: module_result.stdout.find('av') != -1 or module_result.stdout == ""
+  when: module_result.stdout.find('av') == -1 or module_result.stdout == ""
 
 - name: Install required packages
   ansible.builtin.dnf:
