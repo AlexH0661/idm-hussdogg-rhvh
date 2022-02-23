@@ -1,0 +1,21 @@
+---
+- name: Configure sysctl params
+  ansible.builtin.lineinfile:
+    path: /etc/sysctl.conf
+    regex: "^net.ipv4.conf.all.rp_filter="
+    line: "net.ipv4.conf.all.rp_filter=2"
+  notify: kernel params
+
+- name: Configure kvm.conf - ignore_msrs
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/kvm.conf
+    regex: "^options kvm ignore_msrs="
+    line: "options kvm ignore_msrs=1"
+  notify: kernel params
+
+- name: Configure kvm.conf - report_ignored_msrs
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/kvm.conf
+    regex: "^options kvm report_ignored_msrs="
+    line: "options kvm report_ignored_msrs=1"
+  notify: kernel params

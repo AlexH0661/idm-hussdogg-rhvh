@@ -4,3 +4,5 @@
   ansible.builtin.service:
     name: sshd
     state: restarted
+- name: kernel params
+  ansible.builtin.reboot:

@@ -3,6 +3,8 @@
   ansible.builtin.import_tasks: packages.yaml
 - name: Configure firewalld
   ansible.builtin.import_tasks: firewalld.yaml
+- name: Configure tuning
+  ansible.builtin.import_tasks: tuning.yaml
 - name: Configure services
   ansible.builtin.import_tasks: services.yaml
 - name: Configure SSHD
