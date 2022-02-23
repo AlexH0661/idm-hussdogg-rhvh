@@ -1,4 +1,19 @@
 ---
+- name: Confirm which 'virt' stream is enabled
+  ansible.builtin.shell:
+    cmd: "dnf module list --enabled | grep virt | tr -s ' ' | cut -d  ' ' -f2"
+  register: module_result
+
+- name: Reset stream if required
+  ansible.builtin.shell:
+    cmd: 'dnf module reset libvirt:rhel'
+  when: "'av' not in module_result.stdout"
+
+- name: Configure correct stream
+  ansible.builtin.shell:
+    cmd: 'dnf module enable virt:av'
+  when: "'av' not in module_result.stdout"
+
 - name: Install required packages
   ansible.builtin.dnf:
     name:

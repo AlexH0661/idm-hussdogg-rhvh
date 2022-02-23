@@ -3,5 +3,7 @@
   ansible.builtin.import_tasks: packages.yaml
 - name: Configure firewalld
   ansible.builtin.import_tasks: firewalld.yaml
+- name: Configure services
+  ansible.builtin.import_tasks: services.yaml
 - name: Configure SSHD
   ansible.builtin.import_tasks: sshd.yaml
