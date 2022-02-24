@@ -19,3 +19,5 @@
     name:
       - cephadm-ansible
       - cockpit-ovirt-dashboard
+      - python3-os-brick
+      - ceph-common
